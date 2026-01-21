@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build artifacts - we commit dist/ but exclude source maps
+*.js.map
+*.d.ts.map
+
+# Test files
+tests/
+test-*.ts
+test-*.js
+*.test.ts
+
+# Debug files
+test-main-debug.js
+test-display-debug.js
+test-glm-debug.js
+test-glm-usage-debug.js
+
+# Cache
+.cache/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude plugin cache
+.claude-usage-cache.json
+glm-usage-cache.json
+
+# Optional: Screenshots (uncomment to exclude)
+# *.png

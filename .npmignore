@@ -1,0 +1,28 @@
+# Source files (we publish dist/ instead)
+src/
+*.ts
+
+# Test files
+test-*.ts
+test-*.js
+tests/
+*.test.ts
+
+# Development files
+claude-hud/
+*.png
+CHANGELOG.md
+CLAUDE.README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+MAINTAINERS.md
+RELEASING.md
+SECURITY.md
+SUPPORT.md
+TESTING.md
+
+# Build cache
+node_modules/
+# Don't ignore npm install files needed for users
+# !package.json
+# !package-lock.json
