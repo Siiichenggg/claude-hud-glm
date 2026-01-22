@@ -13,7 +13,7 @@
       "author": {
         "name": "Siiichenggg"
       },
-      "source": "./",
+      "source": "./plugins/claude-hud-glm",
       "category": "productivity",
       "strict": false
     }
