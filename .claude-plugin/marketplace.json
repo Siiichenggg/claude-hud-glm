@@ -2,8 +2,10 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-hud-glm",
   "description": "Local marketplace for the claude-hud-glm plugin.",
+  "version": "0.0.7",
   "owner": {
-    "name": "Siiichenggg"
+    "name": "Siiichenggg",
+    "email": "siiichenggg@users.noreply.github.com"
   },
   "plugins": [
     {
