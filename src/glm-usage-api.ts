@@ -30,6 +30,27 @@ interface ClaudeSettings {
   };
 }
 
+function inferTotalFromPackageName(name?: string): number | null {
+  if (!name) return null;
+
+  // Skip non-token packages like "20次图片/视频生成资源包"
+  if (name.includes('次') && !name.includes('万') && !name.includes('亿')) {
+    return null;
+  }
+
+  // Match numbers with optional unit (万, 亿)
+  const match = name.match(/(\d+(?:\.\d+)?)(万|亿)?/);
+  if (!match) return null;
+
+  const value = Number(match[1]);
+  if (!Number.isFinite(value)) return null;
+
+  const unit = match[2];
+  if (unit === '万') return Math.round(value * 10_000);
+  if (unit === '亿') return Math.round(value * 100_000_000);
+  return Math.round(value);
+}
+
 // File-based cache (HUD runs as new process each render, so in-memory cache won't persist)
 const CACHE_TTL_MS = 60_000; // 60 seconds
 const CACHE_FAILURE_TTL_MS = 15_000; // 15 seconds for failed requests
@@ -169,7 +190,7 @@ export async function getGlmUsage(overrides: Partial<GlmUsageApiDeps> = {}): Pro
     // GLM returns rows of token bundles, we need to aggregate them
     const rows = apiResponse.rows || [];
 
-    // Aggregate all token balances
+    // Aggregate all token balances (only rows with known totals are included)
     let totalGranted = 0;  // Total tokens granted
     let remainingBalance = 0;  // Remaining balance
     let earliestExpiry: Date | null = null;
@@ -177,12 +198,11 @@ export async function getGlmUsage(overrides: Partial<GlmUsageApiDeps> = {}): Pro
     for (const row of rows) {
       const tokenBalance = row.tokenBalance || 0;
 
-      // totalAmount may not be in the response, so we track remaining balance
-      remainingBalance += tokenBalance;
-
-      // Try to get total amount if available
-      if (row.totalAmount) {
-        totalGranted += row.totalAmount;
+      // totalAmount may not be in the response; try to infer from package name
+      const inferredTotal = row.totalAmount || inferTotalFromPackageName(row.resourcePackageName);
+      if (inferredTotal) {
+        totalGranted += inferredTotal;
+        remainingBalance += tokenBalance;
       }
 
       // Track earliest expiration date (support both field names)
