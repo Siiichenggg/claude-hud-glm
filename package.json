@@ -20,17 +20,17 @@
     "zhipu-ai",
     "bigmodel"
   ],
-  "author": "Jarrod Watts",
+  "author": "Siiichenggg",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/claude-hud-glm"
+    "url": "https://github.com/Siiichenggg/claude-hud-glm"
   },
   "bugs": {
-    "url": "https://github.com/your-username/claude-hud-glm/issues"
+    "url": "https://github.com/Siiichenggg/claude-hud-glm/issues"
   },
   "devDependencies": {
     "@types/node": "^25.0.6",

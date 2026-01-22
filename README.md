@@ -4,6 +4,7 @@ A Claude Code plugin that shows what's happening — context usage, active tools
 
 This is a fork of [jarrodwatts/claude-hud](https://github.com/jarrodwatts/claude-hud) with added support for [Zhipu AI GLM API](https://open.bigmodel.cn/) usage tracking.
 
+[![npm version](https://badge.fury.io/js/claude-hud-glm.svg)](https://www.npmjs.com/package/claude-hud-glm)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node version](https://img.shields.io/node/v/claude-hud-glm.svg)](https://nodejs.org)
 
@@ -37,12 +38,7 @@ This version adds support for tracking usage when using the GLM API (Zhipu AI/Bi
 
 Inside a Claude Code instance, run the following commands:
 
-**Step 1: Add the marketplace**
-```
-/plugin marketplace add Siiichenggg/claude-hud-glm
-```
-
-**Step 2: Install the plugin**
+**Step 1: Install the plugin** (from npm)
 
 <details>
 <summary><strong>⚠️ Linux users: Click here first</strong></summary>
@@ -65,12 +61,33 @@ Then run the install command below in that session. This is a [Claude Code platf
 /plugin install claude-hud-glm
 ```
 
-**Step 3: Configure the statusline**
+**Step 2: Configure the statusline**
 ```
 /claude-hud-glm:setup
 ```
 
 Done! The HUD appears immediately — no restart needed.
+
+---
+
+## Alternative: Install from Marketplace
+
+If you prefer to add the marketplace first:
+
+**Step 1: Add the marketplace**
+```
+/plugin marketplace add Siiichenggg/claude-hud-glm
+```
+
+**Step 2: Install from marketplace**
+```
+/plugin install claude-hud-glm
+```
+
+**Step 3: Configure the statusline**
+```
+/claude-hud-glm:setup
+```
 
 ---
 
@@ -210,7 +227,7 @@ If you want to install from a local copy:
 
 **Step 1: Clone and build**
 ```bash
-git clone https://github.com/your-username/claude-hud-glm
+git clone https://github.com/Siiichenggg/claude-hud-glm
 cd claude-hud-glm
 npm ci && npm run build
 ```
@@ -238,7 +255,7 @@ npm ci && npm run build
 ## Development
 
 ```bash
-git clone https://github.com/your-username/claude-hud-glm
+git clone https://github.com/Siiichenggg/claude-hud-glm
 cd claude-hud-glm
 npm ci && npm run build
 npm test
