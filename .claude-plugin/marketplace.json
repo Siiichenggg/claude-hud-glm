@@ -1,13 +1,21 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "claude-hud-glm",
-  "displayName": "Claude HUD GLM",
-  "description": "Real-time statusline HUD for Claude Code with GLM API balance tracking. Shows context usage, active tools, running agents, todo progress, and GLM token balance.",
-  "version": "0.0.7",
-  "author": "Siiichenggg",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Siiichenggg/claude-hud-glm"
+  "description": "Local marketplace for the claude-hud-glm plugin.",
+  "owner": {
+    "name": "Siiichenggg"
   },
-  "npmPackage": "claude-hud-glm"
+  "plugins": [
+    {
+      "name": "claude-hud-glm",
+      "description": "Real-time statusline HUD for Claude Code with GLM API balance tracking. Shows context usage, active tools, running agents, todo progress, and GLM token balance.",
+      "version": "0.0.7",
+      "author": {
+        "name": "Siiichenggg"
+      },
+      "source": ".",
+      "category": "productivity",
+      "strict": false
+    }
+  ]
 }

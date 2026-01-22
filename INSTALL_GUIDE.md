@@ -9,7 +9,8 @@
 在 Claude Code 中运行：
 
 ```
-/plugin install /Users/lusicheng/Projects/claude-hud-glm
+/plugin marketplace add /Users/lusicheng/Projects/claude-hud-glm
+/plugin install claude-hud-glm
 /claude-hud-glm:setup
 ```
 
@@ -141,7 +142,8 @@ Claude Code 状态栏插件，支持 GLM API 余额追踪。
 
 **方式 2: 从本地文件**
 ```
-/plugin install /path/to/claude-hud-glm
+/plugin marketplace add /path/to/claude-hud-glm
+/plugin install claude-hud-glm
 /claude-hud-glm:setup
 ```
 

@@ -52,7 +52,7 @@ When shipping a new version:
 1. **Update version numbers** in all three files:
    - `package.json` → `"version": "X.Y.Z"`
    - `.claude-plugin/plugin.json` → `"version": "X.Y.Z"`
-   - `.claude-plugin/marketplace.json` → `"version": "X.Y.Z"`
+   - `.claude-plugin/marketplace.json` → plugin entry `"version": "X.Y.Z"`
 
 2. **Update CHANGELOG.md** with changes since last release
 

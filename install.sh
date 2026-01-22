@@ -13,6 +13,12 @@ VERSION="0.0.7"
 
 echo "🔧 Installing $PLUGIN_NAME v$VERSION..."
 
+# Ensure build output exists
+if [ ! -d "$SCRIPT_DIR/dist" ]; then
+  echo "📦 dist/ not found, building..."
+  (cd "$SCRIPT_DIR" && npm run build)
+fi
+
 # Create the plugin directory structure
 mkdir -p "$PLUGIN_DIR"
 
@@ -20,6 +26,7 @@ mkdir -p "$PLUGIN_DIR"
 echo "📦 Copying files to plugin cache..."
 cp -r "$SCRIPT_DIR/dist" "$PLUGIN_DIR/"
 cp -r "$SCRIPT_DIR/commands" "$PLUGIN_DIR/" 2>/dev/null || true
+cp -r "$SCRIPT_DIR/.claude-plugin" "$PLUGIN_DIR/" 2>/dev/null || true
 cp "$SCRIPT_DIR/package.json" "$PLUGIN_DIR/"
 cp "$SCRIPT_DIR/CLAUDE.md" "$PLUGIN_DIR/" 2>/dev/null || true
 
@@ -29,7 +36,11 @@ echo "📍 Plugin installed to: $PLUGIN_DIR"
 echo ""
 echo "📝 Next steps:"
 echo "   1. Restart Claude Code"
-echo "   2. Run: /plugin install $PLUGIN_NAME"
+echo "   2. Run: /plugin marketplace add $SCRIPT_DIR"
+echo "      Then: /plugin install $PLUGIN_NAME"
+echo "      (If you want to install by name from GitHub, run:"
+echo "       /plugin marketplace add Siiichenggg/$PLUGIN_NAME"
+echo "       /plugin install $PLUGIN_NAME)"
 echo "   3. Run: /$PLUGIN_NAME:setup"
 echo ""
 echo "Or add to your ~/.claude/settings.json:"

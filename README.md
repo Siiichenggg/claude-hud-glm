@@ -38,7 +38,7 @@ This version adds support for tracking usage when using the GLM API (Zhipu AI/Bi
 
 Inside a Claude Code instance, run the following commands:
 
-**Step 1: Install the plugin** (from npm)
+**Step 1: Install the plugin**
 
 <details>
 <summary><strong>⚠️ Linux users: Click here first</strong></summary>
@@ -58,6 +58,13 @@ Then run the install command below in that session. This is a [Claude Code platf
 </details>
 
 ```
+/plugin marketplace add Siiichenggg/claude-hud-glm
+/plugin install claude-hud-glm
+```
+
+If you're installing from a local checkout instead of GitHub, add the local marketplace path first:
+```
+/plugin marketplace add /path/to/claude-hud-glm
 /plugin install claude-hud-glm
 ```
 
@@ -70,22 +77,12 @@ Done! The HUD appears immediately — no restart needed.
 
 ---
 
-## Alternative: Install from Marketplace
+## Alternative: Install from a Local Checkout
 
-If you prefer to add the marketplace first:
-
-**Step 1: Add the marketplace**
+If you cloned the repo locally, add it as a marketplace path:
 ```
-/plugin marketplace add Siiichenggg/claude-hud-glm
-```
-
-**Step 2: Install from marketplace**
-```
+/plugin marketplace add /path/to/claude-hud-glm
 /plugin install claude-hud-glm
-```
-
-**Step 3: Configure the statusline**
-```
 /claude-hud-glm:setup
 ```
 
@@ -232,9 +229,10 @@ cd claude-hud-glm
 npm ci && npm run build
 ```
 
-**Step 2: Install in Claude Code**
+**Step 2: Add local marketplace and install**
 ```
-/plugin install /path/to/claude-hud-glm
+/plugin marketplace add /path/to/claude-hud-glm
+/plugin install claude-hud-glm
 ```
 
 **Step 3: Configure**
