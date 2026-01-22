@@ -39,7 +39,7 @@ Inside a Claude Code instance, run the following commands:
 
 **Step 1: Add the marketplace**
 ```
-/plugin marketplace add your-username/claude-hud-glm
+/plugin marketplace add Siiichenggg/claude-hud-glm
 ```
 
 **Step 2: Install the plugin**
